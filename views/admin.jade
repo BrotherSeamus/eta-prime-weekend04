@@ -1,0 +1,32 @@
+extends layout
+
+block content
+	header
+		h1 Rando Corp
+		h3 Applicant Admin
+	main
+		section.container
+			form#search
+				fieldset
+					legend Applicant Search
+					input(type='text' id='sFName' name='sFName' placeholder='Search First Name')
+					input(type='text' id='sLName' name='sLName' placeholder='Search Last Name')
+					input(type='text' id='sLocus' name='sLocus' placeholder='Search City, State')
+					input(type='text' id='sSkills' name='sSkills' placeholder='Search Skills')
+					input(type='submit' id='sSubmit' name='sSubmit')
+		section.container
+			h2 Applicants
+			table.row.results
+				tr
+					th.col-md-2 First Name
+					th.col-md-2 Last Name
+					th.col-md-2 Desired Location
+					th.col-md-2 Last Employer
+					th.col-md-4 skills
+				for elem in applicants
+					tr
+						td.col-md-2= elem.fName
+						td.col-md-2= elem.lName
+						td.col-md-2= elem.desLocus
+						td.col-md-2= elem.job1.employer
+						td.col-md-2= elem.skills

@@ -1,5 +1,68 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  header.container
+    .row
+      h1.col-md-6 Rando Corp
+      .col-md-4
+      a.col-md-2(href='/admin') Admin
+  main.container
+    form#application
+      fieldset
+        legend Applicant Information
+        label(for='fName') First Name
+        input(type='text' id='fName' name='fName' required)
+        label(for='lName') Last Name
+        input(type='text' id='lName' name='lName' required)
+        label(for='desJob') Desired Job
+        input(type='text' id='desJob' name='desJob' required)
+        h4 Where would you like to work?
+        label(for='remote') Remote
+        input(type='radio' id='remote' name='desLocus' value='remote' required)
+        label(for='specLocus') Specific Location
+        input(type='radio' id='specLocus' name='desLocus' value="specLocus")
+        label(for='appCity') City
+        input(type='text' id='appCity' name='appCity')
+        label(for='appState') State
+        input(type='text' id='appState' name='appState')
+      fieldset
+        legend Employment History
+        h4 Most Recent Job
+        label(for='title1') Job Title
+        input(type='text' id="title1" name='title1')
+        label(for='employer1') Employer
+        input(type='text' id='employer1' name='employer1')
+        label(for='cityE1') City
+        input(type='text' id='cityE1' name='cityE1')
+        label(for='stateE1') State
+        input(type='text' id='stateE1' name='stateE1')
+        label(for='dutiesE1') Job Duties (please separate duties with a semicolon)
+        textarea(id='dutiesE1' rows='5' cols='30' name='dutiesE1' form='application')
+        h4 Next Most Recent Job
+        label(for='title2') Job Title
+        input(type='text' id="title2" name='title2')
+        label(for='employer2') Employer
+        input(type='text' id='employer2' name='employer2')
+        label(for='cityE2') City
+        input(type='text' id='cityE2' name='cityE2')
+        label(for='stateE2') State
+        input(type='text' id='stateE2' name='stateE2')
+        label(for='dutiesE2') Job Duties (please separate duties with a semicolon)
+        textarea(id='dutiesE2' rows='5' cols='30' name='dutiesE2' form='application')
+        h4 Next Most Recent Job
+        label(for='title3') Job Title
+        input(type='text' id="title3" name='title3')
+        label(for='employer3') Employer
+        input(type='text' id='employer3' name='employer3')
+        label(for='cityE3') City
+        input(type='text' id='cityE3' name='cityE3')
+        label(for='stateE2') State
+        input(type='text' id='stateE3' name='stateE3')
+        label(for='dutiesE3') Job Duties (please separate duties with a semicolon)
+        textarea(id='dutiesE3' rows='5' cols='30' name='dutiesE3' form='application')
+      fieldset
+        legend Skills
+        label(for='skills') Skills (please separate skills with a semicolon)
+        textarea(id='skills' rows='5' cols='30' name='skills' form='application')
+      input(type='submit' name='submit')
+
