@@ -8,7 +8,7 @@ var mongo = require('./data/mongo.js');
 
 var routes = require('./routes/index');
 var admin = require('./routes/admin')
-var applicants = require('./routes/applicants.js');
+var applicants = require('./routes/applicants');
 
 var app = express();
 

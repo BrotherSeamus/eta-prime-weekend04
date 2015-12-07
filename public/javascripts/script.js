@@ -131,24 +131,43 @@ $(function(){
         var newSearch = {};
 
         //for loop to add parameters to the newSearch object
-        for(var h = 0; h<data.length; h++) {
-            if (data[i].name === 'sFName') {
-                newSearch.sFName = data[i].value;
-            } else if (data[i].name === 'SLName') {
-                newSearch.sLName = data[i].value;
-            } else if (data[i].name === 'sLocus') {
-                newSearch.sLocus = data[i].value;
-            } else if (data[i].name === 'sSkills') {
-                newSearch.sSkills = data[i].value;
+        for(var h = 0; h<searchParams.length; h++) {
+            if (searchParams[h].name === 'sFName') {
+                newSearch.sFName = searchParams[h].value;
+            } else if (searchParams[h].name === 'sLName') {
+                newSearch.sLName = searchParams[h].value;
+            } else if (searchParams[h].name === 'sLocus') {
+                newSearch.sLocus = searchParams[h].value;
+            } else if (searchParams[h].name === 'sSkills') {
+                newSearch.sSkills = searchParams[h].value;
             }
         }
         $.ajax({
             url: '/applicants/search',
-            type: 'get',
-            data: JSON.stringify({newSearch: newSearch}),
-            contentType: 'application/json; charset=utf-8'
+            type: 'post',
+            data: newSearch
         }).done(function(data){
-
+            $('.results').empty();
+            $('.results').append(
+              '<tr>'+
+              '<th class="col-md-2">'+ 'First Name' + '</th>' +
+              '<th class="col-md-2">'+ 'Last Name' + '</th>' +
+              '<th class="col-md-2">'+ 'Desired Location' + '</th>' +
+              '<th class="col-md-2">'+ 'Last Employer' + '</th>' +
+              '<th class="col-md-4">'+ 'Skills' + '</th>' +
+              '</tr>'
+            );
+            for(var j = 0; j < data.length; j++){
+                $('.results').append(
+                  '<tr>'+
+                  '<td class="col-md-2">'+ data[j].fName + '</td>' +
+                  '<td class="col-md-2">'+ data[j].lName + '</td>' +
+                  '<td class="col-md-2">'+ data[j].desLocus + '</td>' +
+                  '<td class="col-md-2">'+ data[j].job1.employer + '</td>' +
+                  '<td class="col-md-4">'+ data[j].skills + '</td>' +
+                  '</tr>'
+                );
+            }
         });
 
         //reset the application form
