@@ -1,8 +1,22 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #e6e6e6;
 }
-
+header {
+  background-color: #b3d9ff;
+  padding: 10px;
+}
 a {
+  font-size: 20px;
   color: #00B7FF;
+}
+legend {
+  border-bottom: 1px solid black;
+}
+label {
+  padding: 5px;
+}
+.tableLabel {
+  border-bottom: 2px ridge #888888;
 }
